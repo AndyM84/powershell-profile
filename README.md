@@ -6,3 +6,8 @@ In your *~\Documents\WindowsPowerShell* folder you will find a file, probably ca
 
 # Step 3: Create Other Scripts (optional)
 If you want, this profile will also now load files automatically from *~\Documents\WindowsPowerShell\Scripts*, so create that directory and put any other ps1's you like in there!
+
+# Extra Scripts
+I will periodically update the scripts that I use within the *Scripts* folder on this repository.  Currently I have:
+
+- *Scripts\Remove-Service.ps1* - Shortens calling (gwmi win32_service -filter "name='Service'").delete() and provides simple error catch for non-existent services.
