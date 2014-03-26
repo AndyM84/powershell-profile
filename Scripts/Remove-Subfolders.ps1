@@ -29,9 +29,12 @@ function global:Remove-Subfolders {
 
 		Foreach ($path in $Children)
 		{
-				Write-Host "Removing $Folder from $path.Fullname..."
+				Write-Host "Removing $Folder from $path..."
 		    Remove-Item $path.Fullname -Force -Recurse
 		}
+
+		Write-Host ""
+		Write-Host "Completed."
 	}
 
 	End { }
