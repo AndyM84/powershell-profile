@@ -1,12 +1,5 @@
 Push-Location (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)
 
-# Load posh-git module from current directory
-Import-Module .\posh-git
-
-# If module is installed in a default location ($env:PSModulePath),
-# use this instead (see about_Modules for more information):
-# Import-Module posh-git
-
 function shorten-path([string] $path) { 
    $loc = $path.Replace($HOME, '~') 
    # remove prefix for UNC paths 
@@ -29,9 +22,6 @@ function global:prompt {
     write-host (shorten-path (pwd).Path) -n -f $cdelim
     write-host '' -n -f $cdelim
 
-    # Reset color, which can be messed up by Enable-GitColors
-    $Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
-
     #Write-Host($pwd.ProviderPath) -nonewline
 
     Write-VcsStatus
@@ -39,8 +29,6 @@ function global:prompt {
     $global:LASTEXITCODE = $realLASTEXITCODE
     return "> "
 }
-
-Enable-GitColors
 
 Pop-Location
 
